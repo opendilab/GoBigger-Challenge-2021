@@ -53,7 +53,7 @@ It means, first select the player with the least number of matches. And then, us
 2. Select a player with the least number of matches.
 3. Calculate the draw probability with the remaining players by formula, such as two players.
 
-$$ quality\, _{draw}(\beta ^{2},\mu_{i},\mu_{j},\sigma_{i},\sigma_{j})=\sqrt{\frac{2\beta ^{2}}{2\beta ^{2}+\sigma_{i}^{2}+\sigma_{j}^{2}}}\, \cdot exp(-\frac{(\mu_{i}-\mu_{j})^{2}}{2(2\beta ^{2}+\sigma_{i}^{2}+\sigma_{j}^{2})}) $$
+$$ quality_{draw}(\beta^{2},\mu_{i},\mu_{j},\sigma_{i},\sigma_{j})=\sqrt{\frac{2\beta^{2}}{2\beta^{2}+\sigma_{i}^{2}+\sigma_{j}^{2}}}  \cdot exp(-\frac{(\mu_{i}-\mu_{j})^{2}}{2(2\beta^{2}+\sigma_{i}^{2}+\sigma_{j}^{2})}) $$
 
   * Player $i$ is assumed to exhibit a performance $p_{i}\sim \mathbb{N}(p_{i};\mu_{i},\sigma_{i}^{2})$
   * Player $j$ is assumed to exhibit a performance $p_{j}\sim \mathbb{N}(p_{j};\mu_{j},\sigma_{j}^{2})$ where $\beta ^{2}=\left ( \frac{\sigma}{2} \right )^{2}$
