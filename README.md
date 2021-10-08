@@ -1,6 +1,6 @@
 # GoBigger Challenge 2021
 
-[en](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/README.md) / [zh/中文](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/README_zh.md)
+[en](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/README.md) / [中文](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/README_zh.md)
 
 ## Overview
 
