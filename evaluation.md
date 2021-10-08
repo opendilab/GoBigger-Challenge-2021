@@ -31,9 +31,12 @@ $$ c^{2}=2\beta ^{2}+\sigma_{winner}^{2}+\sigma_{loser}^{2}
 \beta ^{2}=\left ( \frac{\sigma}{2} \right )^{2} $$
 
 
-Player rating value as a Gaussian distribution which starts from $\mathbb{N} (\mu ,\sigma ^{2})$. Winner Player is assumed to exhibit a performance 
+Player rating value as a Gaussian distribution which starts from $\mathbb{N} (\mu ,\sigma ^{2})$. Winner Player is assumed to exhibit a performance $p_{winner}\backsim$.
 
-$$ p_{winner}\backsim \mathbb{N}(p_{winner};\mu _{winner},\sigma_{winner}^{2} $$
+$\mathbb{N}(p_{winner};\mu _{winner},\sigma_{winner}^{2})$
+
+$\mathbb{N}(1;2)$
+
 
 Loser Player is assumed to exhibit a performance $p_{loser}\backsim \mathbb{N}(p_{loser};\mu _{loser},\sigma_{loser}^{2})$.
         
