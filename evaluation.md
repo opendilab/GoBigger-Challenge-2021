@@ -31,14 +31,9 @@ $$ c^{2}=2\beta ^{2}+\sigma_{winner}^{2}+\sigma_{loser}^{2}
 \beta ^{2}=\left ( \frac{\sigma}{2} \right )^{2} $$
 
 
-Player rating value as a Gaussian distribution which starts from $\mathbb{N} (\mu ,\sigma ^{2})$. Winner Player is assumed to exhibit a performance $p_{winner}\sim$.
+Player rating value as a Gaussian distribution which starts from $\mathbb{N} (\mu ,\sigma ^{2})$. Winner Player is assumed to exhibit a performance $p_{winner}\sim \mathbb{N} (p_{winner}; \mu_{winner}, \sigma_{winner}^{2})$.
 
-$\mathbb{N} (p_{winner}; \mu_{winner}, \sigma_{winner}^{2})$
-
-$\mathbb{N}(1;2)$
-
-
-Loser Player is assumed to exhibit a performance $p_{loser}\backsim \mathbb{N}(p_{loser};\mu _{loser},\sigma_{loser}^{2})$.
+Loser Player is assumed to exhibit a performance $p_{loser}\sim \mathbb{N}(p_{loser}; \mu_{loser},\sigma_{loser}^{2})$.
         
 Where $\nu$ and $\omega$ are two complex functions, there are the additive and multiplicative correction term for the mean and variance of a (doubly) truncated Gaussian.And see [TrueSkill paper](https://www.microsoft.com/en-us/research/publication/trueskilltm-a-bayesian-skill-rating-system/) for details. The $\nu$ and the $\omega$ determine update range of the rating value. If there is a strength gap between the skills of the two players, but the two eventually draw, the range of changes in their rating value will increase. If there is a strength gap between the skills of the two players and the result is a win, it is in line with expectations, and the update range becomes smaller. Otherwise, it does not meet the expectations and the update range is larger.The $\omega$ is always greater than 0, and the $\nu$ can be positive or negative.
 
@@ -58,10 +53,10 @@ It means, first select the player with the least number of matches. And then, us
 2. Select a player with the least number of matches.
 3. Calculate the draw probability with the remaining players by formula, such as two players.
 
-$$ quality\, _{draw}(\beta ^{2},\mu _{i},\mu _{j},\sigma _{i},\sigma _{j})=\sqrt{\frac{2\beta ^{2}}{2\beta ^{2}+\sigma _{i}^{2}+\sigma _{j}^{2}}}\, \cdot exp(-\frac{(\mu _{i}-\mu _{j})^{2}}{2(2\beta ^{2}+\sigma _{i}^{2}+\sigma _{j}^{2})}) $$
+$$ quality\, _{draw}(\beta ^{2},\mu_{i},\mu_{j},\sigma_{i},\sigma_{j})=\sqrt{\frac{2\beta ^{2}}{2\beta ^{2}+\sigma_{i}^{2}+\sigma_{j}^{2}}}\, \cdot exp(-\frac{(\mu_{i}-\mu_{j})^{2}}{2(2\beta ^{2}+\sigma_{i}^{2}+\sigma_{j}^{2})}) $$
 
-  * Player $i$ is assumed to exhibit a performance $p_{i}\sim \mathbb{N}(p_{i};\mu _{i},\sigma_{i}^{2})$
-  * Player $j$ is assumed to exhibit a performance $p_{j}\sim \mathbb{N}(p_{j};\mu _{j},\sigma_{j}^{2})$ where $\beta ^{2}=\left ( \frac{\sigma}{2} \right )^{2}$
+  * Player $i$ is assumed to exhibit a performance $p_{i}\sim \mathbb{N}(p_{i};\mu_{i},\sigma_{i}^{2})$
+  * Player $j$ is assumed to exhibit a performance $p_{j}\sim \mathbb{N}(p_{j};\mu_{j},\sigma_{j}^{2})$ where $\beta ^{2}=\left ( \frac{\sigma}{2} \right )^{2}$
 
 4. Normalize the draw probability so that the sum is 1.
 5. Use the draw probability as the probability of player selection.
