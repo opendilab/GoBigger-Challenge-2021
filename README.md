@@ -90,29 +90,27 @@ Remember that both `player_a` and `player_b` should be the name in your submissi
 
 We provide [RandomSubmission](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit/random_submission.py) and [BotSubmission](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit/bot_submission.py). `RandomSubmission` provide actions randomly, and `BotSubmission` provide actions based on a script. Both of them could be an example of your submission. More details in code.
 
-We also provide an example for the pipeline of the submission. Please refer to [submission_example](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit/submission_example/) for more details. You can also develop your agent in this directory. Once you finish your ``my_submission.py``, you can call ``python -u test.py`` to check your submission and finally get the ``.tar.gz`` file to upload.
+We also provide an example for the pipeline of the submission. Please refer to [submission_example](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit/submission_example/) for more details. You can also develop your agent in this directory. Once you finish your `my_submission.py`, you can call `python -u test.py` to check your submission and finally get the `.tar.gz` file to upload.
 
 
 ### Supplements
 
-If you want to add other things in your submission, such as model checkpoints or any other materials, please place them in ``./supplements`` and tar them with submission. 
+If you want to add other things in your submission, such as model checkpoints or any other materials, please place them in `./supplements` and tar them with submission. 
 
 
 ### Finally
 
-You should place all your code and materials under ``my_submission/``. Use ``tar zcf submission.tar.gz my_submission/`` to get your final submission files. The final ``submission.tar.gz`` should be:
+You should place all your code and materials under `my_submission/`. Use `tar zcf submission.tar.gz my_submission/` to get your final submission files. The final `submission.tar.gz` should be:
 
-.. code-block:: python
-
+```
     - my_submission
     | - __init__.py
     | - my_submission.py
     | - supplements/
         | - checkpoints or other materials
+```
 
-.. note::
-
-    ``__init__.py`` should be an empty file.
+Attention: `__init__.py` should be an empty file.
 
 
 
