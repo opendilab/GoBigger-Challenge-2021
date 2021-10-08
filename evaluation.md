@@ -31,7 +31,11 @@ $$ c^{2}=2\beta ^{2}+\sigma_{winner}^{2}+\sigma_{loser}^{2}
 \beta ^{2}=\left ( \frac{\sigma}{2} \right )^{2} $$
 
 
-Player rating value as a Gaussian distribution which starts from $\mathbb{N} (\mu ,\sigma ^{2})$. Winner Player is assumed to exhibit a performance $p_{winner}\backsim \mathbb{N}(p_{winner};\mu _{winner},\sigma_{winner}^{2})$. Loser Player is assumed to exhibit a performance $p_{loser}\backsim \mathbb{N}(p_{loser};\mu _{loser},\sigma_{loser}^{2})$.
+Player rating value as a Gaussian distribution which starts from $\mathbb{N} (\mu ,\sigma ^{2})$. Winner Player is assumed to exhibit a performance 
+
+$$ p_{winner}\backsim \mathbb{N}(p_{winner};\mu _{winner},\sigma_{winner}^{2} $$
+
+Loser Player is assumed to exhibit a performance $p_{loser}\backsim \mathbb{N}(p_{loser};\mu _{loser},\sigma_{loser}^{2})$.
         
 Where $\nu$ and $\omega$ are two complex functions, there are the additive and multiplicative correction term for the mean and variance of a (doubly) truncated Gaussian.And see [TrueSkill paper](https://www.microsoft.com/en-us/research/publication/trueskilltm-a-bayesian-skill-rating-system/) for details. The $\nu$ and the $\omega$ determine update range of the rating value. If there is a strength gap between the skills of the two players, but the two eventually draw, the range of changes in their rating value will increase. If there is a strength gap between the skills of the two players and the result is a win, it is in line with expectations, and the update range becomes smaller. Otherwise, it does not meet the expectations and the update range is larger.The $\omega$ is always greater than 0, and the $\nu$ can be positive or negative.
 
