@@ -109,6 +109,11 @@ global_state, player_state = obs
 
 注意，`__init__.py` 应当是一个空文件。
 
+## 其他
+
+* [赛题内容设置](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/challenge_settings.md)
+* [评测方法](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/evaluation.md)
+
 
 
 

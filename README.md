@@ -112,7 +112,10 @@ You should place all your code and materials under `my_submission/`. Use `tar zc
 
 Attention: `__init__.py` should be an empty file.
 
+## Resources
 
+* [Challenge Settings](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/challenge_settings.md)
+* [Evaluation](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/evaluation.md)
 
 
 
