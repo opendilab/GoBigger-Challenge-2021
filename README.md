@@ -2,10 +2,6 @@
 
 [en](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/README.md) / [中文](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/README_zh.md)
 
-## Overview
-
-2021 "Go-Bigger: Multi-agent Decision Intelligence Challenge" (hereinafter referred to as the "challenge") is jointly organized by Shanghai Artificial Intelligence Laboratory and Sensetime Research Institute, and is jointly supported by the Global Artificial Intelligence Academic Alliance of Universities and the Student Union of the Chinese Academy of Sciences. The scientific and technological competition for global technology developers and school students aims to explore the research of multi-agent games and promote the training of technical talents in decision-making intelligence related fields, so as to create "global leading", "original" and "open" decision-making AI open source technology ecology.
-
 ## Challenge Description
 
 This challenge is divided into two stages. The first stage is to help contestants have a more correct understanding of the performance of the submitted agent. In the second stage, the final ranking of the participating teams will be conducted.
