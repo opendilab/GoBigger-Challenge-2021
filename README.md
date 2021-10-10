@@ -110,8 +110,5 @@ Attention: `__init__.py` should be an empty file.
 
 ## Resources
 
-* [Challenge Settings](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/challenge_settings.md)
-* [Evaluation](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/evaluation.md)
-
-
-
+* Challenge Settings: [en](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/challenge_settings.md) / [中文](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/challenge_settings_zh.md)
+* Evaluation: [en](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/evaluation.md) / [中文](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/evaluation_zh.md)

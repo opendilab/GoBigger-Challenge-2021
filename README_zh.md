@@ -107,12 +107,5 @@ global_state, player_state = obs
 
 ## 其他
 
-* [赛题内容设置](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/challenge_settings.md)
-* [评测方法](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/evaluation.md)
-
-
-
-
-
-
-
+* 赛题内容设置: [en](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/challenge_settings.md) / [中文](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/challenge_settings_zh.md)
+* 评测方法: [en](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/evaluation.md) / [中文](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/evaluation_zh.md)

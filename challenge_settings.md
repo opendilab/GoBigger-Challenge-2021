@@ -30,4 +30,3 @@ You should note that each team consists of 3 players, and each player can have a
 #### Spore
 
 Spore balls can be eat by any other clone balls larger than itself. We make sure that all spore balls have the same radius of 3.
-
