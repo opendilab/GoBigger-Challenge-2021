@@ -4,6 +4,7 @@ In order to easily evaluate the level of competition between different players, 
   
 At the same time, in order to ensure the fairness of the game and the stability of the player's rating value, we designed a matchmaking mechanism based on the [TrueSkill](https://trueskill.org/) rating system.
 
+In order to ensure the normal display of the formula, please use Chrome and install [MathJax Plugin for Github](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima/related). 
 
 ## Rating System Introduction
 

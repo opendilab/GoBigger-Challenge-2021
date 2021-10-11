@@ -4,6 +4,7 @@
   
 同时，为了保证游戏的公平性和玩家技能水平的稳定性，我们设计了基于[TrueSkill](https://trueskill.org/)评分系统的匹配机制。
 
+为了保证公式的正常显示，请使用 Chrome 浏览器并安装 [MathJax Plugin for Github](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima/related).
 
 ## 评分系统介绍
 
