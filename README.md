@@ -4,7 +4,9 @@
 
 ## Challenge Description
 
-This challenge is divided into two stages. The first stage is to help contestants have a more correct understanding of the performance of the submitted agent. In the second stage, the final ranking of the participating teams will be conducted.
+Multi-agent confrontation is an important part of decision intelligence AI, and it is also a very challenging problem. In order to enrich the multi-agent confrontation environment, OpenDILab has developed a multi-agent confrontation competitive game, named GoBigger. Based on GoBigger, the purpose of this challenge is to explore the research of multi-agent games and promote the training of technical talents in the fields of decision intelligence, so as to create a "global leading", "original" and "open" decision intelligence AI open source technology ecosystem.
+
+This challenge needs competitors to submit their agents. We will return the score for agents to help competitors have a more correct understanding of the performance of the submitted agent. At the end of the challenge, we will fully test all submissions and the final ranking of the participating teams will be conducted.
 
 ## Specific Task
 
