@@ -103,6 +103,7 @@ You should place all your code and materials under `my_submission/`. Use `tar zc
 ```
     - my_submission
     | - __init__.py
+    | - requirements.txt
     | - my_submission.py
     | - supplements/
         | - checkpoints or other materials

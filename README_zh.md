@@ -100,6 +100,7 @@ global_state, player_state = obs
 ```
 - my_submission
     | - __init__.py
+    | - requirements.txt
     | - my_submission.py
     | - supplements/
         | - checkpoints or other materials
