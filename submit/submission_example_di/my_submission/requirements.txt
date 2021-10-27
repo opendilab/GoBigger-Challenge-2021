@@ -44,7 +44,6 @@
 # deprecation-alias==0.2.0
 # dict2css==0.2.4
 # dill==0.3.4
-# DI-engine
 # docutils==0.16
 # domdf-python-tools==3.1.0
 # donna25519==0.1.1
