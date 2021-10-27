@@ -8,9 +8,9 @@ import time
 
 from ding.config import compile_config
 from ding.policy import DQNPolicy
-from dizoo.gobigger.envs import GoBiggerEnv
-from dizoo.gobigger.model import GoBiggerStructedNetwork
-from dizoo.gobigger.config.gobigger_selfplay_no_spatial_config import main_config
+from .envs import GoBiggerEnv
+from .model import GoBiggerStructedNetwork
+from .config.gobigger_no_spatial_config import main_config
 
 from gobigger.agents import BotAgent
 from gobigger.utils import Border
@@ -44,8 +44,9 @@ class MySubmission(BaseSubmission):
             save_cfg=True
         );
         print(self.cfg)
+        self.root_path = os.path.abspath(os.path.dirname(__file__))
         self.model = GoBiggerStructedNetwork(**self.cfg.policy.model)
-        self.model.load_state_dict(torch.load('./supplements/ckpt_best.pth.tar', map_location='cpu')['model'])
+        self.model.load_state_dict(torch.load(os.path.join(self.root_path, 'supplements', 'ckpt_best.pth.tar'), map_location='cpu')['model'])
         self.policy = DQNPolicy(self.cfg.policy, model=self.model).eval_mode
         self.env = GoBiggerEnv(self.cfg.env)
 
