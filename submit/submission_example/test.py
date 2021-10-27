@@ -36,7 +36,7 @@ def test():
             p = importlib.import_module('my_submission.my_submission')
             agents.append(p.MySubmission(team_name=team_names[index], 
                                          player_names=team_player_names[team_names[index]]))
-        except:
+        except Exception as e:
             print('You must implement `MySubmission` in my_submission.py !')
             exit()
     

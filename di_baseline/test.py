@@ -21,8 +21,8 @@ logging.basicConfig(level=logging.DEBUG)
 
 def test():
     server = Server(dict(
-            team_num=2, # 队伍数量
-            player_num_per_team=2, # 每个队伍的玩家数量
+            team_num=4, # 队伍数量
+            player_num_per_team=3, # 每个队伍的玩家数量
             match_time=30, # 每场比赛的持续时间
     ))
     render = EnvRender(server.map_width, server.map_height)
@@ -32,13 +32,13 @@ def test():
     team_player_names = server.get_team_names()
     team_names = list(team_player_names.keys())
     for index in range(server.team_num):
-        # try:
-        p = importlib.import_module('my_submission.my_submission')
-        agents.append(p.MySubmission(team_name=team_names[index], 
-                                     player_names=team_player_names[team_names[index]]))
-        # except Exception as e:
-        #     print('You must implement `MySubmission` in my_submission.py !')
-        #     exit()
+        try:
+            p = importlib.import_module('my_submission.my_submission')
+            agents.append(p.MySubmission(team_name=team_names[index], 
+                                         player_names=team_player_names[team_names[index]]))
+        except Exception as e:
+            print('You must implement `MySubmission` in my_submission.py !')
+            exit()
     
     for i in tqdm(range(30*server.action_tick_per_second)):
         obs = server.obs()

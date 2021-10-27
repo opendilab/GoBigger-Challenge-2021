@@ -113,7 +113,7 @@ Attention: `__init__.py` should be an empty file.
 
 ## Submission based on DI-engine
 
-We also develop [submission_example_di](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit/submission_example_di/) based on [DI-engine](https://github.com/opendilab/DI-engine). You can place your ckpt in supplements to get a completed submission.
+We also develop [submission_example_di](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/di_baseline/) based on [DI-engine](https://github.com/opendilab/DI-engine). You can place your ckpt in supplements to get a completed submission.
 
 ## Resources
 

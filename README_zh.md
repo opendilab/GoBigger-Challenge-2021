@@ -109,7 +109,7 @@ global_state, player_state = obs
 注意，`__init__.py` 应当是一个空文件。
 
 ## 基于DI-engine实现提交
-我们也基于 DI-engine 实现了一个提交，具体请查看 [submission_example_di](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit/submission_example_di/)。用户可以将训练好的ckpt放入supplements下，即可组成一个完整的提交。
+我们也基于 DI-engine 实现了一个提交，具体请查看 [submission_example_di](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/di_baseline/)。用户可以将训练好的ckpt放入supplements下，即可组成一个完整的提交。
 
 ## 其他
 
