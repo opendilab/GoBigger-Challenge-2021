@@ -12,10 +12,8 @@ import traceback
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 os.environ['SDL_AUDIODRIVER'] = 'dsp'
 
-from gobigger.agents import BotAgent
-from gobigger.utils import Border
 from gobigger.server import Server
-from gobigger.render import RealtimeRender, RealtimePartialRender, EnvRender
+from gobigger.render import EnvRender
 
 logging.basicConfig(level=logging.DEBUG)
 
