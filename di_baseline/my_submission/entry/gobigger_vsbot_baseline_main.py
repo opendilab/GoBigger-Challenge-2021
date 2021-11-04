@@ -1,15 +1,13 @@
 import os
-import gym
 import numpy as np
 import copy
-import torch
 from tensorboardX import SummaryWriter
 import sys
 sys.path.append('..')
 
 from ding.config import compile_config
 from ding.worker import BaseLearner, BattleSampleSerialCollector, BattleInteractionSerialEvaluator, NaiveReplayBuffer
-from ding.envs import SyncSubprocessEnvManager, DingEnvWrapper
+from ding.envs import SyncSubprocessEnvManager
 from ding.policy import DQNPolicy
 from ding.utils import set_pkg_seed
 from ding.rl_utils import get_epsilon_greedy_fn
@@ -98,7 +96,7 @@ def main(cfg, seed=0, max_iterations=int(1e10)):
     policy = DQNPolicy(cfg.policy, model=model)
     rule_collect_policy = RulePolicy(1, cfg.env.player_num_per_team)
     random_eval_policy = RandomPolicy(
-        cfg.policy.model.action_type_shape, cfg.env.team_num * cfg.env.player_num_per_team
+        cfg.policy.model.action_type_shape, cfg.env.player_num_per_team
     )
     rule_eval_policy = RulePolicy(1, cfg.env.player_num_per_team)
     eps_cfg = cfg.policy.other.eps
