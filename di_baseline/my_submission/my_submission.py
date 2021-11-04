@@ -12,12 +12,6 @@ from .envs import GoBiggerEnv
 from .model import GoBiggerStructedNetwork
 from .config.gobigger_no_spatial_config import main_config
 
-from gobigger.agents import BotAgent
-from gobigger.utils import Border
-from gobigger.server import Server
-from gobigger.render import EnvRender
-from gobigger.agents import BotAgent
-
 
 class BaseSubmission:
 
@@ -41,8 +35,8 @@ class MySubmission(BaseSubmission):
         self.cfg = compile_config(
             self.cfg,
             policy=DQNPolicy,
-            save_cfg=True
-        );
+            save_cfg=False,
+        )
         print(self.cfg)
         self.root_path = os.path.abspath(os.path.dirname(__file__))
         self.model = GoBiggerStructedNetwork(**self.cfg.policy.model)
