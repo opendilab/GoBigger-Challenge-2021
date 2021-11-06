@@ -1,8 +1,6 @@
 import os
-import gym
 import numpy as np
 import copy
-import torch
 from tensorboardX import SummaryWriter
 import sys
 sys.path.append('..')
@@ -17,6 +15,7 @@ from ding.rl_utils import get_epsilon_greedy_fn
 from envs import GoBiggerEnv
 from model import GoBiggerStructedNetwork
 from config.gobigger_no_spatial_config import main_config
+
 
 class RandomPolicy:
 
@@ -65,7 +64,7 @@ def main(cfg, seed=0, max_iterations=int(1e10)):
 
     model = GoBiggerStructedNetwork(**cfg.policy.model)
     policy = DQNPolicy(cfg.policy, model=model)
-    eval_policy = RandomPolicy(cfg.policy.model.action_type_shape, cfg.env.team_num * cfg.env.player_num_per_team)
+    eval_policy = RandomPolicy(cfg.policy.model.action_type_shape, cfg.env.player_num_per_team)
     eps_cfg = cfg.policy.other.eps
     epsilon_greedy = get_epsilon_greedy_fn(eps_cfg.start, eps_cfg.end, eps_cfg.decay, eps_cfg.type)
 
