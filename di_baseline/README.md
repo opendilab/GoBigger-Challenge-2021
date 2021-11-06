@@ -36,7 +36,32 @@ And these simple data representations are very unfriendly to computers and neura
 
 3. Variable dimensions
     - There are many variable dimensions in the Go-Bigger environment. For example, the number of units (units refer to the collection of food, thorns, spores, and clone balls) will always change. For the sake of simplicity, we force the number of units to be truncated in the baseline environment, and the unit information exceeding 200 is directly discarded, and the case of less than 200 is filled with zero. As the player's size changes, his 2D field of view is constantly changing (initially 300x300), so the width and height of the 2D feature image layer will continue to change as the game progresses. We scale all 2D images in the environment to a uniform fixed size, and use a violent uniform method to avoid the problem of variable size.
-4. Tips
+
+4. One-Hot Encoder
+
+    - One-Hot coding is the representation of categorical variables as binary vectors. It seeks to map categorical values to integer values. Each integer value is represented as a binary vector, except for the index of the integer, it has a zero value, and it is marked as 1 [Code](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/di_baseline/my_submission/envs/ . gobigger_env.py#L15)
+    
+    ``` python
+        def one_hot_np(value: int, num_cls: int):
+            ret = np.zeros(num_cls)
+            ret[value] = 1
+            return ret
+    ```
+5. Relative coordinates
+   
+    - Using relative positions can avoid training instability caused by too large or too small position values[Code](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/di_baseline/my_submission/envs/gobigger_env.py#L139-L142).
+    ``` python
+
+        left_top_x,right_bottom_x = ori_left_top_x/self._map_width,ori_right_bottom_x/self._map_width
+        left_top_y,right_bottom_y = ori_left_top_y/self._map_height,ori_right_bottom_y/self._map_height
+
+        position = [
+            (position[0] - ori_left_top_x) / (ori_right_bottom_x - ori_left_top_x),
+            (position[1] - ori_right_bottom_y) / (ori_left_top_y - ori_right_bottom_y)
+            ]
+    ```  
+
+6. Tips
     - What is the problem with the number of violent truncation units? If the unit is allowed to be variable, what challenges will it bring to code implementation and model training?
     - Part of the feature image layer has the problem of being too sparse, so besides the convolutional neural network, are there other modeling methods?
     - Is there any problem with using only a single frame of data for observation? If you consider the sequence relationship of the observation space, how to achieve it?
@@ -112,18 +137,32 @@ For the situation where there are multiple agents in the actual game, we use the
 
 We have prepared a baseline, which adopts the IDQN+Self-Play mode, uses a forced truncation strategy for unit information in the observation space, and uses a 16-dimensional discrete space in the action space. Our baseline is based on the open source reinforcement learning platform DI-engine. Let's get started quickly!
 
-1. Install the necessary packege
+1. Experimental configuration
+   The configuration required for this experiment is a stand-alone single-card experiment. The recommended memory size is 32G, which can be estimated by yourself based on the buffer size.
+
+2. Install the necessary packege
 ```
 git clone https://github.com/opendilab/DI-engine
 cd YOUR_PATH/DI-engine/
 pip install -e . --user
 ```
 
-2. start training baseline
+3. start training baseline
 ```
 git clone https://github.com/opendilab/GoBigger-Challenge-2021/
 cd YOUR_PATH/GoBigger-Challenge-2021/di_baseline/my_submission/entry/
 python gobigger_selfplay_baseline_main.py
 ```
+
+4. Training
+    Buffer information will be output during training. At the beginning, no data was collected by the buffer, and it is normal to display as 0. Every time training starts, it will be evaluated when train_iter=0. The purpose of evaluation is to record the performance of initial random initialization. At the beginning of training, the neural network structure information will be printed, and then log information will be output. The log information example is as follows,
+    <div align=center><img src="./avatar/start_train.png" width = 100%></div>
+
+    The data that is pushed to the buffer each time will be displayed during training. The size of the buffer is in the [config file](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/di_baseline/my_submission/config/gobigger_no_spatial_config.py#L46) can be set. The following figure shows the training log information, which includes reward information, learning rate, loss value, and Q value.
+    <div align=center><img src="./avatar/train_log.png" width = 100%></div>
+
+5. Training result
+   
+   The training log information will be automatically saved in a folder named after the exp_name parameter of config. You can use tensorboard to view training information and real-time training.
 
 

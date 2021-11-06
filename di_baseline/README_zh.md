@@ -36,7 +36,32 @@ Go-Bigger以人类的视角是这样的：
 
 3. 可变维度
     - 最后也是最折磨的地方，Go-Bigger环境中其实存在很多可变维度的地方，例如单位（单位指食物，荆棘，孢子，分身球的集合）的个数一直会发生变化，比如吃掉食物，分裂新的分身球等等，为了简便，我们在baseline环境中强行截断单位数量，多于200的单位信息直接丢弃，少于200的情况则用等长的零向量补齐；而随着玩家大小的变化，其看到的2D视野范围也是不断变化的（最初是300x300），所以2D特征图像层的宽高是会随着游戏进程不断变化的，同样我们也做了处理，将所有的2D图像在环境中缩放为统一的固定尺寸，用暴力统一的方式来规避可变维度问题。
-4. Tips
+
+4. One-Hot编码
+
+    - One-Hot编码是分类变量作为二进制向量的表示。这首先要求将分类值映射到整数值。然后，每个整数值被表示为二进制向量，除了整数的索引之外，它都是零值，它被标记为1。可以查看[代码具体实现路径](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/di_baseline/my_submission/envs/gobigger_env.py#L15)
+    
+    ``` python
+        def one_hot_np(value: int, num_cls: int):
+            ret = np.zeros(num_cls)
+            ret[value] = 1
+            return ret
+    ```
+5. 相对坐标实现
+   
+    - 使用相对位置可以避免位置数值过大或者过小带来的训练不稳定性。[代码具体实现路径](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/di_baseline/my_submission/envs/gobigger_env.py#L139-L142)
+    ``` python
+
+        left_top_x,right_bottom_x = ori_left_top_x/self._map_width,ori_right_bottom_x/self._map_width
+        left_top_y,right_bottom_y = ori_left_top_y/self._map_height,ori_right_bottom_y/self._map_height
+
+        position = [
+            (position[0] - ori_left_top_x) / (ori_right_bottom_x - ori_left_top_x),
+            (position[1] - ori_right_bottom_y) / (ori_left_top_y - ori_right_bottom_y)
+            ]
+    ```    
+   
+6. Tips
     - 暴力截断单位数量会存在什么问题？如果允许单位可变，会对代码实现和模型训练带来什么挑战?
     - 部分特征图像层存在过于稀疏的问题，那么除了卷积神经网络，有其他的建模方式吗?
     - 只用单帧数据作为观察会有什么问题吗？如果考虑观察空间的序列关系，该如何实现?
@@ -105,18 +130,36 @@ DQN通常只用来解决单智能体的问题，而Go-Bigger一个队伍中存�
 
 我们已经准备好了一份baseline,其采用IDQN+Self-Play模式，在观察空间对单位信息采用强制截断策略，在动作空间采用16维的离散空间。我们的baseline基于开源强化学习平台DI-engine。那我们快速开始吧！
 
-1. 安装必要的环境库
+1. 实验配置
+   本次实验所需配置为单机单卡实验，内存大小建议为32G，可根据buffer大小自行估算。
+
+2. 安装必要的环境库
 ```
 git clone https://github.com/opendilab/DI-engine
 cd YOUR_PATH/DI-engine/
 pip install -e . --user
 ```
 
-2. 开始训练baseline
+3. 开始训练baseline
 ```
 git clone https://github.com/opendilab/GoBigger-Challenge-2021/
 cd YOUR_PATH/GoBigger-Challenge-2021/di_baseline/my_submission/entry/
 python gobigger_selfplay_baseline_main.py
 ```
+
+4. 训练阶段
+   训练中会输出buffer信息，刚开始buffer并未采集到数据，显示为0是正常状态。每次训练开始在train_iter=0时会进行评估，评估的目的是记录最初随机初始化的性能。训练开始会打印神经网络结构信息，然后输出log信息，log信息示例如下，
+   <div align=center><img src="./avatar/start_train.png" width = 100%></div>
+ 
+   训练中会显示每次push到buffer中的数据，buffer的大小在[config文件中](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/di_baseline/my_submission/config/gobigger_no_spatial_config.py#L46)可以进行设置。下图为训练log信息，其中包括奖励reward信息、学习率、损失值以及Q值。
+      <div align=center><img src="./avatar/train_log.png" width = 100%></div>
+
+5. 训练结果
+   
+   训练的log信息会自动保存在以config的exp_name参数命名的文件夹下，可使用tensorboard查看训练信息以及实时训练情况。
+
+
+
+
 
 
