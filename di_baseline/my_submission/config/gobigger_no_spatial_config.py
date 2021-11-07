@@ -21,8 +21,8 @@ gobigger_dqn_config = dict(
     policy=dict(
         cuda=True,
         model=dict(
-            scalar_shape=36,
-            per_unit_shape=21,
+            scalar_shape=50,
+            per_unit_shape=31,
             action_type_shape=16,
             rnn=False,
         ),

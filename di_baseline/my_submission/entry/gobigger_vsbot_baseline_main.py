@@ -94,11 +94,12 @@ def main(cfg, seed=0, max_iterations=int(1e10)):
 
     model = GoBiggerStructedNetwork(**cfg.policy.model)
     policy = DQNPolicy(cfg.policy, model=model)
-    rule_collect_policy = RulePolicy(1, cfg.env.player_num_per_team)
+    team_num = cfg.env.team_num
+    rule_collect_policy = [RulePolicy(team_id, cfg.env.player_num_per_team) for team_id in range(1, team_num)]
     random_eval_policy = RandomPolicy(
         cfg.policy.model.action_type_shape, cfg.env.player_num_per_team
     )
-    rule_eval_policy = RulePolicy(1, cfg.env.player_num_per_team)
+    rule_eval_policy = [RulePolicy(team_id, cfg.env.player_num_per_team) for team_id in range(1, team_num)]
     eps_cfg = cfg.policy.other.eps
     epsilon_greedy = get_epsilon_greedy_fn(eps_cfg.start, eps_cfg.end, eps_cfg.decay, eps_cfg.type)
 
@@ -108,20 +109,20 @@ def main(cfg, seed=0, max_iterations=int(1e10)):
     )
     collector = BattleSampleSerialCollector(
         cfg.policy.collect.collector,
-        collector_env, [policy.collect_mode, rule_collect_policy],
+        collector_env, [policy.collect_mode] + rule_collect_policy,
         tb_logger,
         exp_name=cfg.exp_name
     )
     random_evaluator = BattleInteractionSerialEvaluator(
         cfg.policy.eval.evaluator,
-        random_evaluator_env, [policy.eval_mode, random_eval_policy],
+        random_evaluator_env, [policy.eval_mode] + [random_eval_policy for _ in range(team_num - 1)],
         tb_logger,
         exp_name=cfg.exp_name,
         instance_name='random_evaluator'
     )
     rule_evaluator = BattleInteractionSerialEvaluator(
         cfg.policy.eval.evaluator,
-        rule_evaluator_env, [policy.eval_mode, rule_eval_policy],
+        rule_evaluator_env, [policy.eval_mode] + rule_eval_policy,
         tb_logger,
         exp_name=cfg.exp_name,
         instance_name='rule_evaluator'

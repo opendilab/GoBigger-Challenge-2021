@@ -74,13 +74,13 @@ def main(cfg, seed=0, max_iterations=int(1e10)):
     )
     collector = BattleSampleSerialCollector(
         cfg.policy.collect.collector,
-        collector_env, [policy.collect_mode, policy.collect_mode],
+        collector_env, [policy.collect_mode for _ in range(cfg.env.team_num)],
         tb_logger,
         exp_name=cfg.exp_name
     )
     evaluator = BattleInteractionSerialEvaluator(
         cfg.policy.eval.evaluator,
-        evaluator_env, [policy.eval_mode, eval_policy],
+        evaluator_env, [policy.eval_mode] + [eval_policy for _ in range(cfg.env.team_num - 1)],
         tb_logger,
         exp_name=cfg.exp_name,
         instance_name='random_evaluator'
