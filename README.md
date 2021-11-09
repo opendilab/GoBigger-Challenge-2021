@@ -111,7 +111,7 @@ You should place all your code and materials under `my_submission/`. Use `tar zc
 
 Attention: `__init__.py` should be an empty file.
 
-## Try your first commission
+## Try your first submission
 
 Maybe you are not very familiar with our competition, but don't worry, we provide the simplest case submission! Try the following code to quickly generate a `my_submission.tar.gz` for submission!
 
