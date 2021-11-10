@@ -46,11 +46,12 @@ class GoBiggerEnv(BaseEnv):
         self._train = cfg.train
         self._last_team_size = None
         self._init_flag = False
+        self._cfg['obs_settings'] = dict(with_spatial=self._spatial)
 
     def _launch_game(self) -> Server:
         server = Server(self._cfg)
         server.start()
-        render = EnvRender(server.map_width, server.map_height, use_spatial=self._spatial)
+        render = EnvRender(server.map_width, server.map_height)
         server.set_render(render)
         self._player_names = sum(server.get_player_names_with_team(), [])
         return server

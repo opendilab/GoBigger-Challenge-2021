@@ -134,3 +134,5 @@ ckpt/
 log/
 formatted_total_config.py
 total_config.py
+
+.vscode
