@@ -111,6 +111,29 @@ You should place all your code and materials under `my_submission/`. Use `tar zc
 
 Attention: `__init__.py` should be an empty file.
 
+## Try your first submission
+
+Maybe you are not very familiar with our competition, but don't worry, we provide the simplest case submission! Try the following code to quickly generate a `my_submission.tar.gz` for submission!
+
+```
+$ cd submit/submission_example
+$ python -u test.py
+```
+
+The above `test.py` will check whether your submission is correct. If it is correct, you will get the following output:
+
+```
+Success!
+###################################################################
+#                                                                 #
+#   Now you can upload my_submission.tar.gz as your submission.   #
+#                                                                 #
+###################################################################
+```
+Now you only need to submit your `my_submission.tar.gz`!
+
+* Note: This submission is made of a random policy. You can check the code and change the policy to get better performance. 
+
 ## Submission based on DI-engine
 
 We also develop [submission_example_di](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/di_baseline/) based on [DI-engine](https://github.com/opendilab/DI-engine). You can place your ckpt in supplements to get a completed submission.

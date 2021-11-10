@@ -108,6 +108,28 @@ global_state, player_state = obs
 
 注意，`__init__.py` 应当是一个空文件。
 
+## 尝试你的第一个提交
+
+也许你对我们的比赛还不是很熟悉，但是不用担心，我们提供了一个最简单的提交案例！尝试下面的代码快速生成一个用于提交的 `my_submission.tar.gz` 吧！
+
+```
+$ cd submit/submission_example
+$ python -u test.py
+```
+上述的 `test.py` 会检查你的提交是否正确。如果正确，则会得到以下输出：
+
+```
+Success!
+###################################################################
+#                                                                 #
+#   Now you can upload my_submission.tar.gz as your submission.   #
+#                                                                 #
+###################################################################
+```
+现在你只需要把 `my_submission.tar.gz` 提交即可！
+
+* 注意：此提交是由随机策略构成的。你可以检查代码并更改策略以获得更好的性能。
+
 ## 基于DI-engine实现提交
 我们也基于 DI-engine 实现了一个提交，具体请查看 [submission_example_di](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/di_baseline/)。用户可以将训练好的ckpt放入supplements下，即可组成一个完整的提交。
 
