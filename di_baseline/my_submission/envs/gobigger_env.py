@@ -2,6 +2,7 @@ from typing import Any, List, Union, Optional, Tuple
 import time
 import copy
 import math
+from collections import OrderedDict
 import cv2
 import numpy as np
 from ding.envs import BaseEnv, BaseEnvTimestep, BaseEnvInfo
@@ -101,6 +102,7 @@ class GoBiggerEnv(BaseEnv):
         leaderboard_feat = leaderboard_feat.reshape(-1)
         global_feat = np.concatenate([total_time_feat, last_time_feat, leaderboard_feat])
         # player
+        player_state = OrderedDict(player_state)
         obs = []
         for n, value in player_state.items():
             if self._spatial:
@@ -160,6 +162,8 @@ class GoBiggerEnv(BaseEnv):
                     'unit_obs': player_unit_feat.astype(np.float32),
                     'unit_num': len(player_unit_feat),
                     'collate_ignore_raw_obs': copy.deepcopy({'overlap': raw_overlap}),
+                    'player_name':n,
+                    'team_name':int(value['team_name'][-1]),
                 }
             )
             if self._spatial:

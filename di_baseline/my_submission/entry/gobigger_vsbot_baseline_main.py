@@ -49,9 +49,9 @@ class RulePolicy:
         ret = {}
         for env_id in data.keys():
             action = []
-            for o in data[env_id]:
+            for o in data[env_id]:   # len(data[env_id]) = player_num_per_team
                 raw_obs = o['collate_ignore_raw_obs']
-                key = raw_obs['overlap']['clone'][0]['player']
+                key = o['player_name']
                 bot = self.bot[key]
                 action.append(bot.step(raw_obs))
             ret[env_id] = {'action': np.array(action)}
