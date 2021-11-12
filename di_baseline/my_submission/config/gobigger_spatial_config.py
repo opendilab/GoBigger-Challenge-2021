@@ -15,6 +15,8 @@ gobigger_dqn_config = dict(
         resize_height=160,
         resize_width=160,
         spatial=True,
+        speed=False,
+        all_vision = False,
         manager=dict(shared_memory=False, ),
     ),
     policy=dict(
