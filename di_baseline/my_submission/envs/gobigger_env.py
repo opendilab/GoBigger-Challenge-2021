@@ -47,7 +47,12 @@ class GoBiggerEnv(BaseEnv):
         self._train = cfg.train
         self._last_team_size = None
         self._init_flag = False
-        self._cfg['obs_settings'] = dict(with_spatial=self._spatial)
+        self._speed = cfg.speed
+        self._all_vision = cfg.all_vision
+        self._cfg['obs_settings'] = dict(
+                with_spatial=self._spatial,
+                with_speed=self._speed,
+                with_all_vision=self._all_vision)
 
     def _launch_game(self) -> Server:
         server = Server(self._cfg)
@@ -105,6 +110,15 @@ class GoBiggerEnv(BaseEnv):
         player_state = OrderedDict(player_state)
         obs = []
         for n, value in player_state.items():
+            if self._all_vision:
+                if n == '0':
+                    tmp_feature_layers = value['feature_layers']
+                    tmp_overlap = value['overlap']
+                    tmp_rectangle = value['rectangle']
+                else:
+                    value['feature_layers'] = tmp_feature_layers
+                    value['overlap'] = tmp_overlap
+                    value['rectangle'] = tmp_rectangle
             if self._spatial:
                 player_spatial_feat = []
                 for c, item in enumerate(value['feature_layers']):
@@ -131,12 +145,16 @@ class GoBiggerEnv(BaseEnv):
                     raw_overlap_one_type = []
                 raw_overlap[unit_type] = copy.deepcopy(raw_overlap_one_type)
                 for unit in raw_overlap_one_type:
-                    if unit_type == 'clone':
-                        position, radius = unit['position'], unit['radius']
-                        player_name, team_name = unit['player'], unit['team']
-                        player_number, team_nubmer = int(player_name[-1]), int(team_name[-1])
-                    else:
-                        position, radius = unit['position'], unit['radius']
+                    if unit_type == 'clone': 
+                        position, radius = [unit[0],unit[1]], unit[2]
+                        if not self._speed:  # unit = [position.x, position.y, radius, player_name, team_name]
+                            player_name, team_name = unit[3], unit[4]
+                            player_num, team_nubmer = int(player_name), int(team_name)
+                        else:                # unit = [position.x, position.y, radius, vel.x, vel.y, player_name, team_name]
+                            player_name, team_name = unit[5], unit[6]
+                            player_number, team_nubmer = int(player_name), int(team_name)
+                    else:   # unit = [position.x, position.y, radius]
+                        position, radius = [unit[0],unit[1]], unit[2] 
                         player_number, team_nubmer = self._player_num, self._team_num  # placeholder
                     radius_feat = one_hot_np(round(min(10, math.sqrt(radius))), 11)
                     position = [
