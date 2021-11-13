@@ -54,16 +54,16 @@ global_state, player_state = obs
 
 ``player_state`` 包含玩家channel信息，玩家视角所在位置，玩家视角内所有出现的单位信息，当前玩家所属队伍名称。具体如下:
 
-```python
+```
 {
     player_name: {
         'feature_layers': list(numpy.ndarray), # features of player
         'rectangle': [left_top_x, left_top_y, right_bottom_x, right_bottom_y], # the vision's position in the map
         'overlap': {
-            'food': [{'position': position, 'radius': radius}, ...], # the length of food is not sure
-            'thorns': [{'position': position, 'radius': radius}, ...], # the length of food is not sure
-            'spore': [{'position': position, 'radius': radius}, ...], # the length of food is not sure
-            'clone': [{'position': position, 'radius': radius, 'player': player_name, 'team': team_name}, ...], # the length of food is not sure
+            'food': [[position.x, position.y, radius], ...], 
+            'thorns': [[position.x, position.y, radius], ...],
+            'spore': [[position.x, position.y, radius], ...],
+            'clone': [[[position.x, position.y, radius, player_name, team_name], ...],     
         }, # all balls' info in vision
         'team_name': team_name, # the team which this player belongs to 
     }
