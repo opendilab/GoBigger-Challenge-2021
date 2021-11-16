@@ -76,6 +76,8 @@ class GoBiggerEnv(BaseEnv):
         self._env.reset()
         raw_obs = self._env.obs()
         obs = self._obs_transform(raw_obs)
+        self._last_team_size = None
+        rew = self._get_reward(raw_obs)
         return obs
 
     def close(self) -> None:
@@ -173,14 +175,14 @@ class GoBiggerEnv(BaseEnv):
                 player_unit_feat = np.concatenate([player_unit_feat, padding_player_unit_feat])
             else:
                 player_unit_feat = np.stack(player_unit_feat)[-200:]
-
+            raw_overlap['clone'] = [[x[0],x[1],x[2],int(x[3]),int(x[4])]for x in raw_overlap['clone']]
             obs.append(
                 {
                     'scalar_obs': np.concatenate([global_feat, player_scalar_feat]).astype(np.float32),
                     'unit_obs': player_unit_feat.astype(np.float32),
                     'unit_num': len(player_unit_feat),
                     'collate_ignore_raw_obs': copy.deepcopy({'overlap': raw_overlap}),
-                    'player_name':n,
+                    'player_name':int(n),
                     'team_name':int(value['team_name'][-1]),
                 }
             )
