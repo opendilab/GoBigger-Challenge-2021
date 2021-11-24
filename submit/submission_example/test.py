@@ -57,8 +57,8 @@ def test():
     print('Success!')
 
 def postprocess():
-    logging.debug('tar zcf my_submission.tar.gz my_submission/')
-    output = subprocess.getoutput('tar zcf my_submission.tar.gz my_submission/')
+    logging.debug('tar zcf my_submission.tar.gz my_submission')
+    output = subprocess.getoutput('tar zcf my_submission.tar.gz my_submission')
     assert os.path.isfile('my_submission.tar.gz')
     print('###################################################################')
     print('#                                                                 #')
