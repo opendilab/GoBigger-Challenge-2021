@@ -19,7 +19,7 @@ def one_hot_np(value: int, num_cls: int):
     return ret
 
 
-@ENV_REGISTRY.register('gobigger')
+@ENV_REGISTRY.register('gobigger', force_overwrite=True)
 class GoBiggerEnv(BaseEnv):
     config = dict(
         player_num_per_team=2,
