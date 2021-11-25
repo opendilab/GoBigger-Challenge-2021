@@ -2,6 +2,8 @@
 
 [en](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/README.md) / [中文](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/README_zh.md)
 
+* 2021.11.13 我们正在举办一场[竞赛](https://www.datafountain.cn/competitions/549/) —— 2021“AI球球大作战：Go-Bigger多智能体决策智能挑战赛”. 快来参与吧！
+
 ## 赛制说明
 
 多智能体对抗是决策AI中重要的一部分，也是一个非常具有挑战性的难题。为了丰富多智能体对抗环境，OpenDILab研发了一款多智能体对抗竞技游戏，即GoBigger。本次大赛旨在探索多智能体博弈的研究，推动决策智能相关领域的技术人才培养，从而打造“全球领先”、“原创”、“开放”的决策AI开源技术生态。
