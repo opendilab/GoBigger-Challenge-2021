@@ -31,6 +31,8 @@ class GoBiggerEnv(BaseEnv):
         resize_width=160,
         spatial=True,
         train=True,
+        speed=False,
+        all_vision=False,
     )
 
     def __init__(self, cfg: dict) -> None:
