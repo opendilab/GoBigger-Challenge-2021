@@ -35,7 +35,7 @@ class BaseSubmission:
         raise NotImplementedError
 ```
 
-注意，所有的提交都应当继承 `BaseSubmission` 类，提交的类名称应当为 `MySubmission`。竞赛将会为每个提交提供 `team_name` 和 `player_names` 作为类的输入参数。`team_name` 代表的是该提交所控制的队伍的名称，在每一场比赛都会不一样。`player_names` 代表当前队伍中的所有控制的玩家的名称。竞赛在评测用户提交的时候会调用 `get_actions()` 以获取该提交在当前帧的 `action`。`get_actions()` 方法以 `obs` 作为输入（与 [tutorial](https://opendilab.github.io/GoBigger/tutorial/space.html#space) 相似）。例如，一个简单的 `obs` 例子如下：
+注意，所有的提交都应当继承 `BaseSubmission` 类，提交的类名称应当为 `MySubmission`。竞赛将会为每个提交提供 `team_name` 和 `player_names` 作为类的输入参数。`team_name` 代表的是该提交所控制的队伍的名称，在每一场比赛都会不一样。`player_names` 代表当前队伍中的所有控制的玩家的名称。竞赛在评测用户提交的时候会调用 `get_actions()` 以获取该提交在当前帧的 `action`。`get_actions()` 方法以 `obs` 作为输入（与 [tutorial](https://gobigger.readthedocs.io/zh_CN/latest/tutorial/space.html#observation-space) 相似）。例如，一个简单的 `obs` 例子如下：
 
 ```python
 global_state, player_state = obs
@@ -83,7 +83,7 @@ global_state, player_state = obs
 }
 ```
 
-`player_a` 和 `player_b` 分别是该提交所控制的玩家名称，即 `player_names` 中的名称。`actions_a` 和 `actions_b` 应当是列表类型，其内容应当与 [action-space](https://opendilab.github.io/GoBigger/tutorial/space.html#action-space) 中保持一致。
+`player_a` 和 `player_b` 分别是该提交所控制的玩家名称，即 `player_names` 中的名称。`actions_a` 和 `actions_b` 应当是列表类型，其内容应当与 [action-space](https://gobigger.readthedocs.io/zh_CN/latest/tutorial/space.html#id2) 中保持一致。
 
 ### 提交样例与测试
 
