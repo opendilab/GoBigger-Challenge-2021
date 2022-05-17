@@ -4,15 +4,15 @@
 
 ![banner](assets/banner.png)
 
-Do you remember the game named Feeding Frenzy？Here comes the Decision Intelligence version of the Feeding Frenzy —— AI BOB : Go-Bigger Multi-Agent Decision Intelligence Challenge!
+Do you remember the game named Feeding Frenzy? Here comes the Decision Intelligence version of the Feeding Frenzy —— AI BOB : Go-Bigger Multi-Agent Decision Intelligence Challenge!
 
-What’s more！This competition is open to technology developers and students all over the world.
+What’s more, this competition is open to technology developers and students all over the world.
 
 In this competition, your team needs to develop an intelligent agent to "eat" as many enemies as possible，so as to make your intelligent agent more powerful. Briefly, the stronger the intelligent agent, the higher the score.
 
 Teamwork is important to win this competition. You need to cooperate perfectly with your teammates to work out a strategy for the championship and you will experience the law of the jungle in the game.
 
-We are looking forward to your brilliant performance in this challenge！
+We are looking forward to your brilliant performance in this challenge!
 
 
 ## Outline
