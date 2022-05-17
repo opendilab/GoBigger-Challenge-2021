@@ -2,15 +2,38 @@
 
 [en](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/README.md) / [中文](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/README_zh.md)
 
-* 2021.11.13 We are holding a [challenge](https://www.datafountain.cn/competitions/549/) —— 2021 "AI BOB：Go-Bigger Multi-Agent Decision Intelligence Challenge". Come and make your agents in the game!
+![banner](assets/banner.png)
 
-## Challenge Description
+Do you remember the game named Feeding Frenzy？Here comes the Decision Intelligence version of the Feeding Frenzy —— AI BOB : Go-Bigger Multi-Agent Decision Intelligence Challenge!
+
+What’s more！This competition is open to technology developers and students all over the world.
+
+In this competition, your team needs to develop an intelligent agent to "eat" as many enemies as possible，so as to make your intelligent agent more powerful. Briefly, the stronger the intelligent agent, the higher the score.
+
+Teamwork is important to win this competition. You need to cooperate perfectly with your teammates to work out a strategy for the championship and you will experience the law of the jungle in the game.
+
+We are looking forward to your brilliant performance in this challenge！
+
+
+## Outline
+
+* [Challenge Introduction](#challenge-introduction)
+* [Task in Challenge](#task-in-challenge)
+* [Submission](#submission)
+* [Submission based on DI-engine](#submission-base-on-di-engine)
+* [Try your first submission](#try-your-first-submission)
+* [Resources](#resources)
+* [Join and Contribute](#join-and-contribute)
+* [License](#license)
+
+
+## Challenge Introduction
 
 Multi-agent confrontation is an important part of decision intelligence AI, and it is also a very challenging problem. In order to enrich the multi-agent confrontation environment, OpenDILab has developed a multi-agent confrontation competitive game, named GoBigger. Based on GoBigger, the purpose of this challenge is to explore the research of multi-agent games and promote the training of technical talents in the fields of decision intelligence, so as to create a "global leading", "original" and "open" decision intelligence AI open source technology ecosystem.
 
 This challenge needs competitors to submit their agents. We will return the score for agents to help competitors have a more correct understanding of the performance of the submitted agent. At the end of the challenge, we will fully test all submissions and the final ranking of the participating teams will be conducted.
 
-## Specific Task
+## Task in Challenge
 
 This challenge uses [Go-Bigger](https://github.com/opendilab/GoBigger) as the game environment. Go-Bigger is a multi-players competitive environment. For more details, please refer to the Go-Bigger documentation. In the match, each team participating in the challenge controls one team in the game (each team consists of multiple players). Contest participating teams need to submit an agent to control a certain team in the match and the players it contains, and obtain higher scores through teamwork, thereby achieving a higher ranking in the match.
 
@@ -113,6 +136,10 @@ You should place all your code and materials under `my_submission/`. Use `tar zc
 
 Attention: `__init__.py` should be an empty file.
 
+## Submission based on DI-engine
+
+We also develop [submission_example_di](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/di_baseline/) based on [DI-engine](https://github.com/opendilab/DI-engine). You can place your ckpt in supplements to get a completed submission.
+
 ## Try your first submission
 
 Maybe you are not very familiar with our competition, but don't worry, we provide the simplest case submission! Try the following code to quickly generate a `my_submission.tar.gz` for submission!
@@ -136,11 +163,19 @@ Now you only need to submit your `my_submission.tar.gz`!
 
 * Note: This submission is made of a random policy. You can check the code and change the policy to get better performance. 
 
-## Submission based on DI-engine
-
-We also develop [submission_example_di](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/di_baseline/) based on [DI-engine](https://github.com/opendilab/DI-engine). You can place your ckpt in supplements to get a completed submission.
-
 ## Resources
 
 * Challenge Settings: [en](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/challenge_settings.md) / [中文](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/challenge_settings_zh.md)
 * Evaluation: [en](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/evaluation.md) / [中文](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/evaluation_zh.md)
+
+## Join and Contribute
+
+Welcome to OpenDI Lab GoBigger community! Scan the QR code and add us on Wechat:
+
+![QR code](assets/qr.png)
+
+Or you can contact us with [slack](https://opendilab.slack.com/join/shared_invite/zt-v9tmv4fp-nUBAQEH1_Kuyu_q4plBssQ#/shared-invite/email) or email (opendilab.contact@gmail.com).
+
+## License
+
+GoBigger-Challenge-2021 released under the Apache 2.0 license.
