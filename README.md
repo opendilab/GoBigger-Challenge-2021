@@ -4,13 +4,13 @@
 
 ![banner](assets/banner.png)
 
-Do you remember the game named Feeding Frenzy? Here comes the Decision Intelligence version of the Feeding Frenzy —— AI BOB : Go-Bigger Multi-Agent Decision Intelligence Challenge!
+Do you remember the game named Feeding Frenzy? Here comes the Decision Intelligence version of the Feeding Frenzy —— AI BOB: Go-Bigger Multi-Agent Decision Intelligence Challenge!
 
-What’s more, this competition is open to technology developers and students all over the world.
+What’s more, this competition is open to technology developers and students worldwide.
 
-In this competition, your team needs to develop an intelligent agent to "eat" as many enemies as possible，so as to make your intelligent agent more powerful. Briefly, the stronger the intelligent agent, the higher the score.
+In this competition, your team needs to develop an intelligent agent to "eat" as many enemies as possible, to make your intelligent agent more powerful. Briefly, the stronger the intelligent agent, the higher the score.
 
-Teamwork is important to win this competition. You need to cooperate perfectly with your teammates to work out a strategy for the championship and you will experience the law of the jungle in the game.
+Teamwork is essential to win this competition. You need to cooperate perfectly with your teammates to work out a strategy for the championship and you will experience the law of the jungle in the game.
 
 We are looking forward to your brilliant performance in this challenge!
 
@@ -29,17 +29,17 @@ We are looking forward to your brilliant performance in this challenge!
 
 ## Challenge Introduction
 
-Multi-agent confrontation is an important part of decision intelligence AI, and it is also a very challenging problem. In order to enrich the multi-agent confrontation environment, OpenDILab has developed a multi-agent confrontation competitive game, named GoBigger. Based on GoBigger, the purpose of this challenge is to explore the research of multi-agent games and promote the training of technical talents in the fields of decision intelligence, so as to create a "global leading", "original" and "open" decision intelligence AI open source technology ecosystem.
+Multi-agent confrontation is an important part of decision intelligence AI, and it is also a very challenging problem. In order to enrich the multi-agent confrontation environment, OpenDILab has developed a multi-agent confrontation competitive game named GoBigger. Based on GoBigger, the purpose of this challenge is to explore the research of multi-agent games and promote the training of technical talents in the fields of decision intelligence to create a "global leading", "original" and "open" decision intelligence AI open-source technology ecosystem.
 
-This challenge needs competitors to submit their agents. We will return the score for agents to help competitors have a more correct understanding of the performance of the submitted agent. At the end of the challenge, we will fully test all submissions and the final ranking of the participating teams will be conducted.
+This challenge needs competitors to submit their agents. We will return the score for agents to help competitors have a more accurate understanding of the performance of the submitted agent. At the end of the challenge, we will thoroughly test all submissions and the final ranking of the participating teams will be conducted.
 
 ## Task in Challenge
 
-This challenge uses [Go-Bigger](https://github.com/opendilab/GoBigger) as the game environment. Go-Bigger is a multi-players competitive environment. For more details, please refer to the Go-Bigger documentation. In the match, each team participating in the challenge controls one team in the game (each team consists of multiple players). Contest participating teams need to submit an agent to control a certain team in the match and the players it contains, and obtain higher scores through teamwork, thereby achieving a higher ranking in the match.
+This challenge uses [Go-Bigger](https://github.com/opendilab/GoBigger) as the game environment. Go-Bigger is a multi-players competitive environment. For more details, please refer to the Go-Bigger documentation. In the match, each team participating in the challenge controls one team in the game (each team consists of multiple players). Contest participating teams need to submit an agent to control a certain team in the match and the players it contains and obtain higher scores through teamwork, thereby achieving a higher ranking in the match.
 
 ## Submission
 
-Here in [submit](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit), we provide examples of submission for all teams in our challenge. We also provide [BaseSubmission](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit/base_submission.py), and participants should implements their owned submission based on the code.
+Here in [submit](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit), we provide examples of submissions for all teams in our challenge. We also offer [BaseSubmission](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit/base_submission.py), and participants should implements their own submissions based on the code.
 
 ```python
 class BaseSubmission:
@@ -56,13 +56,13 @@ class BaseSubmission:
         raise NotImplementedError
 ```
 
-Note that all submission should extend with `BaseSubmission`. We will provide `team_name` and `player_names` for each submission as their basic parameters. `team_names` means the name of team which this submission controls. We also know that there are several players in a team, which is relative with the `player_names` in the parameters. We will call `get_actions()` when we try to get actions from this submission. So that participants should implements `get_actions()` in their submission. This function will receive `obs` as its parameters, which is similar with what we provide in [tutorial](https://gobigger.readthedocs.io/en/latest/tutorial/space.html#observation-space). For example, submissions will get `obs` as following:
+Note that all submission should extend with `BaseSubmission`. We will provide `team_name` and `player_names` for each submission as their basic parameters. `team_names` means the name of team that this submission controls. We also know that several players in a team are relative to the `player_names` in the parameters. We will call `get_actions()` when we try to get actions from this submission. So that participants should implement `get_actions()` in their submission. This function will receive `obs` as its parameters, similar to what we provide in the [tutorial](https://gobigger.readthedocs.io/en/latest/tutorial/space.html#observation-space). For example, submissions will get `obs` as follows:
 
 ```python
 global_state, player_state = obs
 ```
 
-`global_state` in details:
+`global_state` in detail:
 
 ```python
 {
@@ -75,9 +75,9 @@ global_state, player_state = obs
 }
 ```
 
-Participants can find their `team_name` in submission matched with the `team_name` in `leaderboard`.
+Participants can find their `team_name` in submission matched with the `team_name` in the `leaderboard`.
 
-`player_state` in details:
+`player_state` in detail:
 
 ```
 {
@@ -95,9 +95,9 @@ Participants can find their `team_name` in submission matched with the `team_nam
 }
 ```
 
-However, we will only provide the submission with the `player_state` matched with its players. That means, if `player_a` and `player_b` (both are player name) are in the team belongs to this submission, and `player_c` not belongs to this team, participants will only get `player_a` and `player_b` in the submission.
+However, we will only provide the submission with the `player_state` matched with its players. That means, if `player_a` and `player_b` (both are player names) are in the team that belongs to this submission, and `player_c` does not belong to this team, participants will only get `player_a` and `player_b` in the submission.
 
-After getting the `obs`, submissions should return `actions` in `get_actions()`. `actions` should look like:
+After getting the `obs`, submissions should return `actions` in `get_actions()`. `actions` should look like this:
 
 ```python
 {
@@ -106,19 +106,19 @@ After getting the `obs`, submissions should return `actions` in `get_actions()`.
 }
 ```
 
-Remember that both `player_a` and `player_b` should be the name in your submission's `player_names`. And `actions_a` should be a list, which contains there items, which are the same with what we propose in [action-space](https://gobigger.readthedocs.io/en/latest/tutorial/space.html#action-space).
+Remember that both `player_a` and `player_b` should be the name in your submission's `player_names`. And `actions_a` should be a list that contains their items, which are the same as what we propose in [action-space](https://gobigger.readthedocs.io/en/latest/tutorial/space.html#action-space).
 
 
 ### Examples and Test
 
-We provide [RandomSubmission](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit/random_submission.py) and [BotSubmission](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit/bot_submission.py). `RandomSubmission` provide actions randomly, and `BotSubmission` provide actions based on a script. Both of them could be an example of your submission. More details in code.
+We provide [RandomSubmission](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit/random_submission.py) and [BotSubmission](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit/bot_submission.py). `RandomSubmission` provide actions randomly, and `BotSubmission` provide actions based on a script. Both of them could be an example of your submission. See more details in the code.
 
 We also provide an example for the pipeline of the submission. Please refer to [submission_example](https://github.com/opendilab/GoBigger-Challenge-2021/blob/main/submit/submission_example/) for more details. You can also develop your agent in this directory. Once you finish your `my_submission.py`, you can call `python -u test.py` to check your submission and finally get the `.tar.gz` file to upload.
 
 
 ### Supplements
 
-If you want to add other things in your submission, such as model checkpoints or any other materials, please place them in `./supplements` and tar them with submission. 
+If you want to add other things to your submissions, such as model checkpoints or other materials, please place them in `./supplements` and tar them with submission. 
 
 
 ### Finally
@@ -142,7 +142,7 @@ We also develop [submission_example_di](https://github.com/opendilab/GoBigger-Ch
 
 ## Try your first submission
 
-Maybe you are not very familiar with our competition, but don't worry, we provide the simplest case submission! Try the following code to quickly generate a `my_submission.tar.gz` for submission!
+Maybe you are not very familiar with our competition but don't worry; we provide the simplest case submission! Try the following code to quickly generate a `my_submission.tar.gz` for submission!
 
 ```
 $ cd submit/submission_example
@@ -178,4 +178,4 @@ Or you can contact us with [slack](https://opendilab.slack.com/join/shared_invit
 
 ## License
 
-GoBigger-Challenge-2021 released under the Apache 2.0 license.
+GoBigger-Challenge-2021 was released under the Apache 2.0 license.
